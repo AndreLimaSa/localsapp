@@ -11,10 +11,6 @@
     "build": "npm run build-client",
     "start": "npm run start-server"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
