@@ -1,14 +1,13 @@
 {
   "name": "100locais_v4",
   "version": "1.0.0",
-  "main": "index.html",
+  "main": "backend/server.js",
   "scripts": {
     "install-client": "cd frontend && npm install",
     "install-server": "cd backend && npm install",
     "build-client": "cd frontend && npm run build",
     "start-client": "cd frontend && npm start",
     "start-server": "cd backend && node server.js",
-    "install": "npm run install-client && npm run install-server",
     "build": "npm run build-client",
     "start": "npm run start-server"
   },
