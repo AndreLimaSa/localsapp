@@ -10,6 +10,7 @@ require("dotenv").config();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const port = process.env.PORT || 3000;
 // MongoDB URI (using a single database with two collections)
 const mongoUri =
   process.env.MONGODB_URI ||
@@ -276,6 +277,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend", "index.html"));
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
