@@ -1,6 +1,6 @@
 async function fetchLocations() {
   try {
-    const response = await fetch("http://localhost:3000/locations");
+    const response = await fetch("https://localsapp-2.onrender.com/locations");
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -436,5 +436,5 @@ async function initializeApp() {
 initializeApp();
 
 function register() {
-  window.open("http://localhost:3000/register", "_blank");
+  window.open("https://localsapp-2.onrender.com/register", "_blank");
 }
