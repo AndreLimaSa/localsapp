@@ -1,16 +1,16 @@
 {
   "name": "100locais_v4",
   "version": "1.0.0",
-  "main": "backend/server.js",
+  "main": "index.html",
   "scripts": {
-    "install-client": "cd frontend && npm install",
-    "install-server": "cd backend && npm install",
-    "build-client": "cd frontend && npm run build",
-    "start-client": "cd frontend && npm start",
-    "start-server": "cd backend && node server.js",
-    "build": "npm run build-client",
-    "start": "npm run start-server"
+    "dev": "nodemon backend/server.js",
+    "start": "node backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",

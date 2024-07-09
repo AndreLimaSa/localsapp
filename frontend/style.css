@@ -1,657 +1,96 @@
-body{
-    margin: 0;
-    padding: 0;
-}
-h1, h2, h3, p{
-    margin: 0;
-    padding: 0;
-}
-#map {
-    position: relative; /* Added this line */
-    width: 100vw;
-    height: 64vh;
-    margin: 0;
-    z-index: 1;
-}
-.leaflet-container {
-    z-index: 0; /* Lower z-index for the map */
-}
-.leaflet-left {
-    left: 0;
-    display: none;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.leaflet-control-attribution {
-    bottom: 0;
-    background: rgba(255, 255, 255, 0) !important;
-    background-color: rgba(255, 255, 255, 0) !important;
-    font-size: 10px;
-    color: #aaa !important;
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
 }
-.leaflet-container a {
-    color: #aaa !important;
+a:hover {
+  color: #535bf2;
 }
 
-.top-container{
-    display: flex;
-    position: fixed;
-    margin-left: 10vw;
-    top: 3vh;
-    width: 80vw;
-    height: 6vh;
-    border-radius: 20px;
-    z-index: 1000;
-    box-shadow: 0px 0px 10px hsl(0, 0%, 90%);
-    border: solid 1px hsl(0, 0%, 80%);
-    backdrop-filter: blur(16px) saturate(51%);
-    -webkit-backdrop-filter: blur(16px) saturate(51%);
-    background-color: rgba(255, 255, 255, 0.4);
-}
-.account-btn{
-    position: relative;
-    background-color: rgba(255, 255, 255, 0);
-    width: 12vw;
-    height: 100%;
-    border-radius: 20px 0px 0px 20px;
-    border-left: none;
-    border-top: none;
-    border-bottom: none;
-    border-right: solid 1px hsl(0, 0%, 80%);
-    padding-left: 10px;
-}
-.search-container {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border-radius: 0px 20px 20px 0px;
-    padding-left: 0.5rem;
-    width: 100%;
-    max-width: 400px;
-    margin-left: 0rem;
-    color: #432e2e;
-    height: 100%;
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-.search-container i {
-    margin-right: 0.5rem;
-    color: hsl(0, 0%, 15%);
-    background-color: rgba(255, 255, 255, 0);
-    
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
-.search-container input {
-    border: none;
-    outline: none;
-    width: 90%;
-    background-color: rgba(255, 255, 255, 0);
-    align-items: center;
-    justify-content: center;
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-.locais-container{
-    background-color: hsl(0, 0%, 95%);
-    width: 100vw;
-    height: 28vh;
-    
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-.title-filtro{
-    display: flex;
-    background-color: none;
-    width: 100vw;
-    height: 5vh;
-    border-bottom: solid 1px hsl(0, 0%, 80%);
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
-#filtersbtn{
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    right: 20px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    border: none;
-    margin-top: 1%; /* Center vertically */
-}
-#favoritesbtn{
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    right: 50px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    border: none;
-    margin-top: 1%; /* Center vertically */
-}
-.filtros-barra{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: hsl(0, 0%, 95%);
-    width: 100vw;
-    height: 8vh;
-    border-top: solid 1px hsl(0, 0%, 80%);
-    color: black;
-    
-}
-#image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(80vw, 1fr));
-    gap: 10px;
-    width: 100vw;
-    height: 22vh;
-    overflow-y: auto;
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
 }
 
-.image-section {
-    display: flex;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    margin: 10px;
-    border-radius: 5px;
-    position: relative;
+.card {
+  padding: 2em;
 }
 
-.img-container {
-    flex: 0 0 auto;
-    margin-right: 15px;
-    position: relative;
+.read-the-docs {
+  color: #888;
 }
 
-.img-container img {
-    aspect-ratio: 1;
-    width: 100px;
-    height: auto;
-    border-radius: 5px;
-    object-fit: cover;
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-.text-container {
-    margin-top: 45px;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.text-container h2 {
-    margin: 0;
-    font-size: 0.8rem;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.text-container p {
-    margin: 5px 0 0;
-    font-size: 0.7rem;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.button-container {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    display: flex;
-    gap: 5px;
-}
-
-.like-button, .dislike-button {
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.like-button i, .dislike-button i {
-    pointer-events: none;
-}
-
-.like-button:hover, .dislike-button:hover {
-    background: rgba(255, 255, 255, 1);
-}
-
-.progress-bar-container {
-    width: 60vw;
-    position: absolute;
-    top: 37px;
-    border: solid 1px hsl(0, 0%, 30%);
-    right: 10px;
-    height: 10px;
-    background: #c53939;
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 101%;
-    background: hsl(195, 48%, 61%);
-    text-align: right;
-    line-height: 10px;
-    color: white;
-    white-space: nowrap;
-    border: none;
-    font-size: 0.7rem;
-}
-
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    color: hsl(0, 0%, 60%);
-    border: none;
-    padding: 0rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    flex-direction: column;
-    margin: 0.5rem;
-    width: 20px;
-}
-
-.checkbox-container i {
-    font-size: 1rem;
-}
-
-.checkbox-container input {
-    display: none;
-}
-/* Style for checked checkboxes */
-.checkbox-container input[type="checkbox"]:checked + i::before  {
-    color: black; /* Change the color of the icon when checked */
-}
-.checkbox-container span {
-    margin-top: 0.2rem;
-    font-size: 0.7rem;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    
-}
-.locais-container h1{
-    color: hsl(0, 0%, 15%);
-    padding-left: 30px;
-    padding-top: 7px;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 22px;
-
-}
-
-/* CSS for the image grid container */
-#image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
   }
-  
-  /* CSS for each location card */
-  .location {
-    border: none;
-    padding: 20px;
-    border-radius: 8px;
+  a:hover {
+    color: #747bff;
   }
-  
-  .location img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    aspect-ratio: 2;
+  button {
+    background-color: #f9f9f9;
   }
-  
-  .location h3 {
-    margin-top: -94px;
-    font-size: 1rem;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  .location p {
-    margin-top: 3px;
-    font-size: 0.8rem;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .location-info {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .location-info span {
-    font-weight: bold;
-  }
-  
-  .location button {
-    margin-top: 6px;
-    
-    cursor: pointer;
-    background-color: none;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  .location button:hover {
-    background-color: none;
-  }
-
-  .icon-buttons {
-    position: relative; /* Add this */
-    top: -180px; /* Adjust this to position the buttons */
-    left: 78vw; /* Adjust this to position the buttons */
-    display: flex;
-    flex-direction: column; /* Arrange buttons in a column */
-    gap: 10px; /* Add space between buttons */
-    background-color: none;
-    width: 20px;
-    align-items: center;
 }
-
-.icon-button {
-    background-color: none;
-    width: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    margin: 0;
-    color: white; /* Change color to white for better contrast */
-}
-
-.icon-button:hover {
-    color: #007BFF;
-}
-  .filtros-container{
-    display: none;
-    position: absolute;
-    top: 0vh;
-    left: 29vw;
-    width: 72vw;
-    height: 15vh;
-    background-color: #0057b300;
-    z-index: 100000000000000000000000;
-  }
-  .filtrosall{
-    display: none;
-  }
-  .distance-container{
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border-radius: 0px 20px 20px 0px;
-    padding-left: 0.5rem;
-    width: 100%;
-    max-width: 400px;
-    margin-left: 0rem;
-    color: #432e2e;
-    height: 100%;
-  }
-  .filtros-container-natureza{
-    display: none;
-    position: absolute;
-    bottom: 8vh;
-    width: 80%;
-    height: 70vh;
-    background-color: #f5f5f5;
-    z-index: 100000000000000000000000;
-    overflow-y: auto;
-    padding-left: 10vw;
-    padding-right: 10vw;
-  }
-  .filtros-container-cultura{
-    display: none;
-    position: absolute;
-    bottom: 8vh;
-    width: 80%;
-    height: 70vh;
-    background-color: #f5f5f5;
-    z-index: 100000000000000000000000;
-    overflow-y: auto;
-    padding-left: 10vw;
-    padding-right: 10vw;
-  }
-  .filtros-container-praia{
-    display: none;
-    position: absolute;
-    bottom: 8vh;
-    width: 80%;
-    height: 70vh;
-    background-color: #f5f5f5;
-    z-index: 100000000000000000000000;
-    overflow-y: auto;
-    padding-left: 10vw;
-    padding-right: 10vw;
-  }
-  .filtros-container-trilho{
-    display: none;
-    position: absolute;
-    bottom: 8vh;
-    width: 80%;
-    height: 70vh;
-    background-color: #f5f5f5;
-    z-index: 100000000000000000000000;
-    overflow-y: auto;
-    padding-left: 10vw;
-    padding-right: 10vw;
-  }
-  .filtros-container-merendas{
-    display: none;
-    position: absolute;
-    bottom: 8vh;
-    width: 80%;
-    height: 70vh;
-    background-color: #f5f5f5;
-    z-index: 100000000000000000000000;
-    overflow-y: auto;
-    padding-left: 10vw;
-    padding-right: 10vw;
-  }
-  .showresults{
-    display: none;
-   position: absolute;
-    width: 100vw;
-    height: 5vh;
-    bottom: 8vh;
-    z-index: 10000000000000000000000000000000000;
-  }
-
-  #distanceSlider{
-    margin-top: 0px;
-  }
-
-  /* Container for button group */
-.button-group {
-    display: flex; /* Use flexbox to align buttons */
-    border-radius: 8px; /* Rounded corners for container */
-    overflow: hidden; /* Clip child elements */
-}
-
-/* General button styling */
-.btn {
-    flex: 1; /* Equal width for all buttons */
-    padding: 10px 12px; /* Padding */
-    border: 1px solid rgb(225, 225, 225); /* Remove border */
-    cursor: pointer; /* Pointer cursor */
-    font-size: 11px; /* Font size */
-    transition: background-color 0.3s; /* Smooth background transition */
-    background-color: #f8f8f8;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-}
-
-/* Specific styling for the left button */
-.btn-left {
-    border-top-left-radius: 8px; /* Rounded top left corner */
-    border-bottom-left-radius: 8px; /* Rounded bottom left corner */
-    border-right: none; /* Border on the right */
-}
-
-/* Specific styling for the middle button */
-.btn-middle {
-    border-left: none; /* Border on the left */
-    border-right: none; /* Border on the right */
-}
-
-/* Specific styling for the right button */
-.btn-right {
-    border-top-right-radius: 8px; /* Rounded top right corner */
-    border-bottom-right-radius: 8px; /* Rounded bottom right corner */
-    border-left: none; /* Border on the left */
-}
-
-
-
-.btn.active {
-    background-color: #161616;
-    color: #dddddd;
-}
-
-
-.button-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px; /* No gap between buttons */
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-size: 25px;
-    
-}
-hr {
-    border: 1px solid rgb(225, 225, 225);
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    }
-
-h5 {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-size: 1rem;
-    }
-
-    h6 {
-        font-family: "Inter", sans-serif;
-        font-optical-sizing: auto;
-        font-size: 0.7rem;
-        font-weight: 400;
-        }
-
-        /* General styling for the checkbox container */
-.checkbox-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 11px;
-    user-select: none;
-    background-color: #f8f8f8;
-    border: 1px solid rgb(225, 225, 225);
-    border-radius: 8px;
-    aspect-ratio: 1.2;
-    transition: background-color 0.3s, color 0.3s;
-    position: relative;
-}
-
-/* Hide the default checkbox */
-.checkbox-grid input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-/* Custom checkbox design */
-.checkmark {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    
-    background-size: cover;
-    color: #121212;
-    margin: auto;
-    aspect-ratio: 1.2;
-}
-
-/* Checkbox checked styling */
-.checkbox-grid input:checked + .checkmark {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    user-select: none;
-    background-color: #222020;
-    color: #eeeeee;
-    
-    border-radius: 8px;
-    aspect-ratio: 1.2;
-    transition: background-color 0.3s, color 0.3s;
-   margin: auto;
-    position: relative;
-    text-align: center;
-}
-span {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-size: 0.7rem;
-    font-weight: 400;
-    align-items: center;
-    justify-content: center;
-    
-    }
-    .progress-bar {
-        position: relative;
-        display: flex;
-        height: 20px;
-        width: 90vw;
-        background-color: #f3f3f3;
-        border-radius: 5px;
-        overflow: hidden;
-        margin-bottom: 10px;
-    }
-    
-    .like-bar {
-        background-color: #4caf50; /* Green for likes */
-        height: 100%;
-    }
-    
-    .dislike-bar {
-        background-color: #f44336; /* Red for dislikes */
-        height: 100%;
-    }
-    
-    .likes-count, .dislikes-count {
-        position: absolute;
-        top: 5px;
-        
-    }
-    
-    .likes-count {
-        left: 10px; /* Adjust to align with the like bar */
-        color: #1b1b1b; /* Match the like bar color */
-    }
-    
-    .dislikes-count {
-        right: 10px; /* Adjust to align with the dislike bar */
-        color: #1b1b1b; /* Match the dislike bar color */
-    }
-    
