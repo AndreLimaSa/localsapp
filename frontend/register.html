@@ -17,7 +17,7 @@
     }
     h2 {
       margin-top: 70px;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
       font-family: "Inter", sans-serif;
   
   font-size: 1.6rem;
@@ -58,7 +58,7 @@ margin-top: 25px;
 }
 
 #btnregister{
-  margin-top: 60px;
+  margin-top: 30px;
   height: 45px;
   width: 50vw;
   border-radius: 5px;
@@ -89,7 +89,19 @@ margin-top: 25px;
       width: 80vw;
       margin-left: 30vw;
     }
-    
+    #loginText {
+      margin-left: -120px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: hsl(0, 0%, 30%);
+    }
+    #loginLink {
+      color: hsl(210, 100%, 40%);
+      text-decoration: none;
+    }
+    #loginLink:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -105,7 +117,9 @@ margin-top: 25px;
     <input type="password" id="regPassword" placeholder="" name="password" required>
     <button id="btnregister" type="submit">Register</button>
   </form>
-
+  <div id="loginText">
+    Already have an account? <a id="loginLink" href="/login">Log in here</a>
+  </div>
 </div>
 
 </div>

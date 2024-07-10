@@ -126,6 +126,11 @@ async function renderLocations(locations) {
 
 // Event listeners for like and dislike buttons
 async function likeLocation(locationId) {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("You need to log in first");
+    return;
+  }
   try {
     const response = await fetch(`/locations/${locationId}/like`, {
       method: "POST",
@@ -145,6 +150,11 @@ async function likeLocation(locationId) {
 }
 
 async function dislikeLocation(locationId) {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("You need to log in first");
+    return;
+  }
   try {
     const response = await fetch(`/locations/${locationId}/dislike`, {
       method: "POST",
