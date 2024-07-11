@@ -306,7 +306,7 @@ h1, h2, h3, p{
 }
 
 .location h3 {
-  margin-top: -94px;
+  margin-top: -114px;
   font-size: 1rem;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -362,7 +362,7 @@ h1, h2, h3, p{
 
 .icon-button {
   background-color: none;
-  width: 20px;
+  width: 28px;
   background: none;
   border: none;
   cursor: pointer;
